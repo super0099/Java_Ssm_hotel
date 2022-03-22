@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yxm.dao.LoginDao">
+    <resultMap id="userData" type="com.yxm.po.SysUser">
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="userName" jdbcType="VARCHAR" property="userName"/>
+        <result column="userPassword" jdbcType="VARCHAR" property="userPassword"/>
+        <result column="passwordSalt" jdbcType="VARCHAR" property="passwordSalt"/>
+        <result column="userState" jdbcType="TINYINT" property="userState"/>
+        <result column="positionId" jdbcType="INTEGER" property="positionId"/>
+        <result column="userPortrait" jdbcType="VARCHAR" property="userPortrait"/>
+        <result column="realName" jdbcType="VARCHAR" property="realName"/>
+    </resultMap>
+    <select id="selectUserName" resultMap="userData">
+        SELECT s_user.* FROM s_user WHERE s_user.userName = #{userName}
+    </select>
+</mapper>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yxm.dao.MenuDao">
+    <resultMap id="menuData" type="com.yxm.po.SysMenu">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="parentId" jdbcType="INTEGER" property="parentId"/>
+        <result column="menuName" jdbcType="VARCHAR" property="menuName"/>
+        <result column="menuIcon" jdbcType="VARCHAR" property="menuIcon"/>
+        <result column="menuUrl" jdbcType="VARCHAR" property="menuUrl"/>
+        <result column="menuType" jdbcType="INTEGER" property="menuType"/>
+    </resultMap>
+    <resultMap id="authorizeData" type="com.yxm.po.SysAuthorize">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="position_Id" jdbcType="INTEGER" property="positionId"/>
+        <result column="menu_id" jdbcType="INTEGER" property="menuId"/>
+    </resultMap>
+    <!--id,position_Id,menu_id -->
+    <select id="selectMenu" resultMap="menuData">
+        select s_menu.id,parentId,menuName,menuIcon,menuUrl,menuType
+        from s_authorize inner join s_menu on s_authorize.menuId = s_menu.id
+        where s_authorize.positionId = #{positionId,jdbcType=INTEGER}
+        order by s_menu.id
+    </select>
+    <select id="selectMenuAll" resultMap="menuData">
+        SELECT s_menu.* FROM s_menu
+    </select>
+    <select id="count" resultType="java.lang.Integer">
+        SELECT COUNT(s_authorize.id) FROM s_authorize
+                                              INNER JOIN s_menu ON s_authorize.menuId = s_menu.id
+        WHERE menuUrl = #{url} AND positionId = #{positionId}
+    </select>
+</mapper>

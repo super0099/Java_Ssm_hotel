@@ -1,0 +1,581 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.clearfix {
+    zoom: 1;
+}
+.body{
+    width: 100%;
+    height: 100%;
+    background: #999999;
+    position: relative;
+}
+.inquireBigBox{
+    text-align: center;
+    width: 100%;
+    height: 680px;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    background: #Ffffff;
+}
+.inquireBigBox img{
+    width: 17%;
+    height: 36%;
+}
+.inquireLittleBox{
+    width: 80%;
+    height: 60px;
+    margin-left: 10%;
+    border: 1px solid #2D93CA;
+    display: flex;
+    border-radius: 10px;
+    padding-left: 3%;
+}
+.inquireLittleBox input{
+    width: 87%;
+    height: 100%;
+    background: rgba(0,0,0,0);
+    outline: none;
+    border: none;
+    font-size: 18px;
+}
+.inquireLittleBox span{
+    width: 13%;
+    display: inline-block;
+    background: #2D93CA;
+    border-radius: 0 10px 10px 0;
+    font-size: 20px;
+    color: #Ffffff;
+    line-height: 60px;
+    text-align: center;
+    cursor: pointer;
+    height: 61px;
+}
+.hint{
+    width: 16%;
+    height: 70px;
+    position: fixed;
+    top: 340px;
+    left: 41%;
+    background: #e8e8e8;
+    z-index: 15;
+    border-radius: 2px;
+}
+.hint h6{
+    width: 100%;
+    height: 30px;
+    background: #5FB878;
+    color: #Ffffff;
+    line-height: 30px;
+    border-radius: 2px 2px 0 0;
+}
+.hint textarea{
+    resize: none;
+    width: 100%;
+    height: 40px;
+    color: #333333;
+    outline: none;
+    border: none;
+    line-height: 40px;
+    border: 2px solid #5FB878;
+    font-size: 12px;
+    border-radius:0 0 2px 2px;
+}
+.appointmentData{
+    width: 98%;
+    height: 96%;
+    opacity: 0;
+    padding: 1%;
+}
+.orderData{
+    width: 50%;
+    height: 45%;
+    margin-bottom: 20px;
+    margin-right:1.5%;
+    border-radius: 5px;
+    float: left;
+    background: #2D93CA;
+    padding: 10px;
+}
+.roomData{
+    width: 45%;
+    height: 45%;
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+    z-index: 2;
+    background: #5FB878;
+    padding: 10px;
+    overflow: auto;
+}
+.optionBig{
+    width: 250px;
+    border-radius: 3px;
+    float: left;
+    margin-right:20px;
+}
+.passengerData{
+    width: 98%;
+    height: 46%;
+    float: left;
+    border-radius: 5px 5px 5px 5px;
+    background: #2D93CA;
+    padding: 10px;
+    overflow: auto;
+}
+.optionFather{
+    width: 100%;
+}
+.optionBigFather{
+    width: 100%;
+}
+.option{
+    display: flex;
+    width: 250px;
+    height: 30px;
+    background: #C2BE9E;
+    border-radius: 3px;
+    float: left;
+    margin-left:45px;
+    margin-top: 30px;
+}
+.optionB{
+    display: flex;
+    width: 250px;
+    height: 30px;
+    background: #C2BE9E;
+    border-radius: 3px;
+    float: left;
+    margin-left:20px;
+    margin-top: 18px;
+}
+.options{
+    display: flex;
+    width: 250px;
+    height: 30px;
+    background: #C2BE9E;
+    border-radius: 3px;
+    margin: 18px 20px;
+}
+.options label{
+    text-align: center;
+    line-height: 30px;
+}
+.options input{
+    border: none;
+    outline: none;
+    width: 66%;
+    border-radius: 0px 3px 3px 0;
+    padding-left: 5px;
+}
+.roomPassenger{
+    width: 250px;
+    height: 150px;
+    overflow: auto;
+    background: rgba(0,0,0,0.5);
+    margin: 0px 20px;
+}
+.roomFu{
+    width: 250px;
+    height: 20px;
+    text-align: center;
+    margin: 0px 20px;
+}
+.roomFu button{
+    outline: none;
+    border: none;
+    width: 30%;
+    height: 18px;
+    background: #B5FFF8;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 2px;
+    color: #Ffffff;
+    margin: 3px;
+}
+.roomFu button:first-child{
+    outline: none;
+    border: none;
+    width: 30%;
+    height: 18px;
+    background: red;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 2px;
+    color: #Ffffff;
+}
+.roomFu button:last-child{
+    width: 30%;
+    outline: none;
+    border: none;
+    height: 18px;
+    background: green;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 2px;
+    color: #Ffffff;
+}
+.option label{
+    text-align: center;
+    line-height: 30px;
+}
+.optionB label{
+    text-align: center;
+    line-height: 30px;
+}
+.option input{
+    border: none;
+    outline: none;
+    width: 76%;
+    border-radius: 0px 3px 3px 0;
+    padding-left: 5px;
+}
+.optionB input{
+    border: none;
+    outline: none;
+    width: 76%;
+    border-radius: 0px 3px 3px 0;
+    padding-left: 5px;
+}
+.optionFather h6{
+    margin: 10px 0px;
+    color: #Ffffff;
+    padding-left: 20px;
+}
+.optionBigFather h6{
+    margin: 10px 0px;
+    color: #Ffffff;
+    padding-left: 20px;
+}
+.optionB select{
+    border: none;
+    outline: none;
+    width: 163%;
+    margin-left: 12%;
+    height: 30px;
+    border-radius: 0px 3px 3px 0;
+    padding-left: 5px;
+}
+.roomData p{
+    width: 98%;
+    border-bottom: 2px solid #C2BE9E;
+    padding-left: 5px;
+    color: #Ffffff;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.orderData p{
+    width: 98%;
+    border-bottom: 2px solid #C2BE9E;
+    padding-left: 5px;
+    color: #Ffffff;
+    padding-bottom: 5px;
+}
+.passengerData p{
+    width: 98%;
+    border-bottom: 2px solid #C2BE9E;
+    padding-left: 5px;
+    color: #Ffffff;
+    padding-bottom: 5px;
+}
+.roomSelect{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #C2BE9E;
+}
+.passengerVerification{
+    margin-top: 20px;
+    display: inline-block;
+    width: 24%;
+    height: 75%;
+    border: 1px solid #Ffffff;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.passengerVerification p{
+    margin-top: 10px;
+    color: #Ffffff;
+}
+.option span{
+    text-align: center;
+    line-height: 30px;
+    margin-left: 10px;
+    color: red;
+}
+.optionB span{
+    text-align: center;
+    line-height: 30px;
+    margin-left: 10px;
+    color: red;
+}
+.checkIn{
+    width: 100%;
+    height: 20px;
+    color: #Ffffff;
+    font-size: 14px;
+}
+.checkIn span:first-child{
+    width: 30%;
+    display: inline-block;
+    text-align: center;
+    padding: 3px;
+}
+.checkIn span:last-child{
+    width: 65%;
+    display: inline-block;
+    text-align: center;
+    padding: 3px;
+}
+.functionality{
+    position: absolute;
+    width: 100px;
+    height: 110px;
+    border-radius: 50px;
+    background: rgba(0,0,0,0.4);
+    z-index: 2;
+    top: 313px;
+    left: 1216px;
+    cursor: pointer;
+}
+.functionality div:first-child{
+    width: 80px;
+    height: 40px;
+    border-radius: 40px 40px 0 0;
+    background: #01AAED;
+    margin-top: 10px;
+    margin-left: 10px;
+    text-align: center;
+    color: #Ffffff;
+    line-height: 40px;
+}
+.functionality div:last-child{
+    width: 80px;
+    height: 40px;
+    border-radius:0 0 40px 40px;
+    background: #eb7350;
+    margin-top: 10px;
+    margin-left: 10px;
+    text-align: center;
+    color: #Ffffff;
+    line-height: 40px;
+}
+.paymentOrder{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 10;
+}
+.paymentOrderHead{
+    width: 30%;
+    height: 90%;
+    margin-left: 35%;
+    margin-top: 3%;
+    background: #Ffffff;
+    border-radius: 5px;
+}
+.orderOption{
+    width: 50%;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 25%;
+}
+.paymentOrderHead h3{
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 18px;
+}
+.orderOption label{
+    width: 30%;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    margin-right: 5%;
+    color: #eb7350;
+}
+.orderOption input{
+    width: 60%;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border: none;
+    outline: none;
+    color: #000000;
+}
+.orderImg{
+    margin-left: 30%;
+    width: 40%;
+    height: 150px;
+
+}
+.orderImg img{
+    width: 100%;
+    height: 100%;
+}
+.affirmPayment{
+    width: 100%;
+    height: 100%;
+    background: #FFFFFF;
+}
+.affirmPayment img{
+    width: 55%;
+    margin-left: 23%;
+    height: 30%;
+}
+.affirmPayment p{
+    font-size: 35px;
+    text-align: center;
+}
+.affirmPayment button{
+    width: 96%;
+    margin-left: 2%;
+    height: 50px;
+    background: #5FB878;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    margin-top: 5%;
+}
+.orderOptions{
+    width: 96%;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 2%;
+    border: 2px solid #eb7350;
+    border-radius: 5px;
+}
+
+.orderOptions label{
+    width: 30%;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    margin-right: 5%;
+    color: #eb7350;
+    font-size: 38px;
+}
+.orderOptions input{
+    width: 60%;
+    height: 50px;
+    text-align: center;
+    line-height: 30px;
+    border: none;
+    outline: none;
+    color: #000000;
+    font-size: 38px;
+    background: rgba(0,0,0,0);
+}
+.jobCutList{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(0,0,0,0.5);
+    top: 0;
+    left: 0;
+    z-index: 8;
+}
+.jobCut{
+    width: 25%;
+    height: 50%;
+    background: #Ffffff;
+    margin-top: 12%;
+    margin-left: 37%;
+    border-radius: 5px;
+}
+.jobCut p{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 18px;
+}
+#passengerList{
+    margin-top: 20px;
+    width: 96%;
+    height: 63%;
+    border:1px solid #333333;
+    margin-left: 2%;
+    border-radius: 5px;
+    overflow: auto;
+}
+#passengerList ul li{
+    float: left;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    list-style-type: none;
+}
+.closeJobCut{
+    float: left;
+    width: 45%;
+    height: 30px;
+    outline: none;
+    border: none;
+    text-align: center;
+    line-height: 30px;
+    margin: 20px 2%;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #eb7350;
+}
+.increaseJob{
+    float: left;
+    width: 45%;
+    height: 30px;
+    outline: none;
+    border: none;
+    text-align: center;
+    line-height: 30px;
+    margin: 20px 2%;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #5FB878;
+}
+.reduceJob{
+    float: left;
+    width: 45%;
+    height: 30px;
+    outline: none;
+    border: none;
+    text-align: center;
+    line-height: 30px;
+    margin: 20px 2%;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #01AAED;
+}
+
+
+
+
+
+
+
+
+/* 设置滚动条的样式 */
+::-webkit-scrollbar {
+    width:2px;
+}
+/* 滚动槽 */
+::-webkit-scrollbar-track {
+    /*-webkit-box-shadow:inset006pxrgba(0,0,0,0.3);*/
+    border-radius:10px;
+}
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+    border-radius:10px;
+    background:rgba(0,0,0,0.1);
+    /*-webkit-box-shadow:inset006pxrgba(0,0,0,0.5);*/
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background: url("../img/砖石.png");
+}

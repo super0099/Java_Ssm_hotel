@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yxm.dao.LocationDao">
+    <resultMap id="roomData" type="com.yxm.po.SysRoom">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="roomName" jdbcType="VARCHAR" property="roomName"/>
+        <result column="roomState" jdbcType="TINYINT" property="roomState"/>
+        <result column="passengerCount" jdbcType="INTEGER" property="passengerCount"/>
+        <result column="appointmentId" jdbcType="INTEGER" property="appointmentId"/>
+        <result column="roomFloor" jdbcType="INTEGER" property="roomFloor"/>
+    </resultMap>
+
+    <select id="selectCountRoom" resultMap="roomData">
+        SELECT s_room.* FROM s_room
+    </select>
+    <select id="selectCountRooms" resultMap="roomData">
+        SELECT s_room.* FROM s_room WHERE s_room.roomState = #{roomState}
+    </select>
+    <select id="selectRoomByText" resultMap="roomData">
+        SELECT s_room.* FROM s_room
+        <where>
+            <if test="floor!=null">s_room.roomFloor =#{floor}</if>
+            <if test="roomName!=''">AND s_room.roomName = #{roomName}</if>
+        </where>
+    </select>
+    <update id="updateRoomState">
+        UPDATE s_room SET s_room.roomState = #{roomState} WHERE s_room.id = #{roomId}
+    </update>
+</mapper>

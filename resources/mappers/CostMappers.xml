@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yxm.dao.CostDao">
+    <!--Jan,Feb,Mar,Apr,May,June,July,Aug,Sept,Oct,Nov,Dece-->
+    <resultMap id="sysMonthData" type="com.yxm.vo.SysMonthVo">
+        <result column="Jan" jdbcType="DECIMAL" property="Jan"/>
+        <result column="Feb" jdbcType="DECIMAL" property="Feb"/>
+        <result column="Mar" jdbcType="DECIMAL" property="Mar"/>
+        <result column="Apr" jdbcType="DECIMAL" property="Apr"/>
+        <result column="May" jdbcType="DECIMAL" property="May"/>
+        <result column="June" jdbcType="DECIMAL" property="June"/>
+        <result column="July" jdbcType="DECIMAL" property="July"/>
+        <result column="Aug" jdbcType="DECIMAL" property="Aug"/>
+        <result column="Sept" jdbcType="DECIMAL" property="Sept"/>
+        <result column="Oct" jdbcType="DECIMAL" property="Oct"/>
+        <result column="Nov" jdbcType="DECIMAL" property="Nov"/>
+        <result column="Dece" jdbcType="DECIMAL" property="Dece"/>
+    </resultMap>
+
+    <resultMap id="IncomeData" type="com.yxm.po.SysIncome">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="incomeDate" jdbcType="DATE" property="incomeDate"/>
+        <result column="money" jdbcType="DECIMAL" property="money"/>
+        <result column="incomeType" jdbcType="TINYINT" property="incomeType"/>
+    </resultMap>
+    <select id="selectMonthVo" resultMap="sysMonthData" parameterType="java.lang.String">
+        SELECT
+            SUM(CASE MONTH(incomeDate) WHEN '1'  THEN money ELSE 0 END) AS Jan,
+            SUM(CASE MONTH(incomeDate) WHEN '2'  THEN money ELSE 0 END) AS Feb,
+            SUM(CASE MONTH(incomeDate) WHEN '3'  THEN money ELSE 0 END) AS Mar,
+            SUM(CASE MONTH(incomeDate) WHEN '4'  THEN money ELSE 0 END) AS Apr,
+            SUM(CASE MONTH(incomeDate) WHEN '5'  THEN money ELSE 0 END) AS May,
+            SUM(CASE MONTH(incomeDate) WHEN '6'  THEN money ELSE 0 END) AS June,
+            SUM(CASE MONTH(incomeDate) WHEN '7'  THEN money ELSE 0 END) AS July,
+            SUM(CASE MONTH(incomeDate) WHEN '8'  THEN money ELSE 0 END) AS Aug,
+            SUM(CASE MONTH(incomeDate) WHEN '9'  THEN money ELSE 0 END) AS Sept,
+            SUM(CASE MONTH(incomeDate) WHEN '10' THEN money  ELSE 0 END) AS OCT,
+            SUM(CASE MONTH(incomeDate) WHEN '11' THEN money  ELSE 0 END) AS Nov,
+            SUM(CASE MONTH(incomeDate) WHEN '12' THEN money  ELSE 0 END) AS Dece
+        FROM s_income
+        WHERE YEAR(incomeDate)=#{years};
+    </select>
+
+    <select id="selectIncomeCount" resultType="java.lang.Integer">
+        SELECT COUNT(id) FROM s_income
+    </select>
+
+    <select id="selectIncomeAll" resultMap="IncomeData">
+        <bind name="startIndex" value="(page-1) * limit"/>
+        SELECT s_income.* from s_income
+        ORDER BY s_income.incomeDate DESC
+        LIMIT #{startIndex,jdbcType=INTEGER},#{limit,jdbcType=INTEGER}
+    </select>
+</mapper>

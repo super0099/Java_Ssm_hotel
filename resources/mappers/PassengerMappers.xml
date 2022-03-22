@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yxm.dao.PassengerDao">
+    <resultMap id="environmentData" type="com.yxm.po.SysEnvironment">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="pictureName" jdbcType="VARCHAR" property="pictureName"/>
+        <result column="pictureType" jdbcType="TINYINT" property="pictureType"/>
+    </resultMap>
+    <resultMap id="passengerData" type="com.yxm.po.SysPassenger">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="passengerName" jdbcType="VARCHAR" property="passengerName"/>
+        <result column="passengerId" jdbcType="VARCHAR" property="passengerId"/>
+        <result column="roomId" jdbcType="VARCHAR" property="roomId"/>
+        <result column="verification" jdbcType="TINYINT" property="verification"/>
+        <result column="appointmentId" jdbcType="INTEGER" property="appointmentId"/>
+    </resultMap>
+    <resultMap id="appointmentData" type="com.yxm.po.SysAppointment">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="startDate" jdbcType="DATE" property="startDate"/>
+        <result column="endDate" jdbcType="DATE" property="endDate"/>
+        <result column="passengerRoom" jdbcType="INTEGER" property="passengerRoom"/>
+        <result column="passengerAmount" jdbcType="INTEGER" property="passengerAmount"/>
+        <result column="presentState" jdbcType="TINYINT" property="presentState"/>
+        <result column="passengerName" jdbcType="VARCHAR" property="passengerName"/>
+        <result column="passengerId" jdbcType="VARCHAR" property="passengerId"/>
+        <result column="orderNumber" jdbcType="VARCHAR" property="orderNumber"/>
+    </resultMap>
+    <select id="selectOrderNumber" resultMap="appointmentData">
+        SELECT s_appointment.* FROM s_appointment WHERE s_appointment.orderNumber = #{orderNumber}
+    </select>
+    <select id="selectEnvironmentPicture" resultMap="environmentData">
+        SELECT s_environment.* FROM s_environment WHERE s_environment.pictureType = #{pictureType}
+    </select>
+    <select id="selectOrderPassenger" resultMap="passengerData">
+        SELECT s_passenger.* FROM s_passenger WHERE s_passenger.appointmentId = #{appointmentId}
+    </select>
+    <select id="inquireRoomPersonnel" resultMap="passengerData">
+        SELECT s_passenger.* FROM s_passenger WHERE s_passenger.roomId = #{roomId} AND s_passenger.verification = 3
+    </select>
+    <insert id="addAppointment" parameterType="com.yxm.po.SysAppointment" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        INSERT INTO s_appointment
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="startDate!=null">startDate,</if>
+            <if test="endDate!=null">endDate,</if>
+            <if test="passengerRoom!=null">passengerRoom,</if>
+            <if test="passengerAmount!=null">passengerAmount,</if>
+            <if test="presentState!=null">presentState,</if>
+            <if test="passengerName!=null">passengerName,</if>
+            <if test="passengerId!=null">passengerId,</if>
+            <if test="orderNumber!=null">orderNumber,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="startDate!=null">#{startDate},</if>
+            <if test="endDate!=null">#{endDate},</if>
+            <if test="passengerRoom!=null">#{passengerRoom},</if>
+            <if test="passengerAmount!=null">#{passengerAmount},</if>
+            <if test="presentState!=null">#{presentState},</if>
+            <if test="passengerName!=null">#{passengerName},</if>
+            <if test="passengerId!=null">#{passengerId},</if>
+            <if test="orderNumber!=null">#{orderNumber},</if>
+        </trim>
+    </insert>
+    <insert id="addAppointmentRoom" parameterType="com.yxm.po.SysPassenger">
+        INSERT INTO s_passenger
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="passengerName!=null">passengerName,</if>
+            <if test="passengerId!=null">passengerId,</if>
+            <if test="roomId!=null">roomId,</if>
+            <if test="verification!=null">verification,</if>
+            <if test="appointmentId!=null">appointmentId,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="passengerName!=null">#{passengerName},</if>
+            <if test="passengerId!=null">#{passengerId},</if>
+            <if test="roomId!=null">#{roomId},</if>
+            <if test="verification!=null">#{verification},</if>
+            <if test="appointmentId!=null">#{appointmentId},</if>
+        </trim>
+    </insert>
+</mapper>

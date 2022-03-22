@@ -1,0 +1,242 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.clearfix {
+    zoom: 1;
+}
+.body{
+    width: 100%;
+    height: 100%;
+    background: #999999;
+    position: relative;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.selectBigBox{
+    width: 100%;
+    height: 170px;
+    background: #Ffffff;
+}
+.RoomState{
+    width: 86%;
+    height: 75px;
+    margin-left: 7%;
+    padding: 5px;
+    border-bottom: 1px solid rgba(0,0,0,0.5);
+    line-height: 75px;
+}
+.RoomState li{
+    width: 110px;
+    text-align: center;
+    height: 30px;
+    margin: 20px;
+    float: left;
+    list-style-type: none;
+    line-height: 30px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.RoomState li span{
+    width: 10px;
+    height: 10px;
+    background: #eb7350;
+    border-radius: 5px;
+    display: inline-block;
+}
+.RoomType{
+    width: 86%;
+    height: 75px;
+    margin-left: 7%;
+    padding: 5px;
+    line-height: 75px;
+}
+.RoomTypeFloor{
+    width: 225px;
+    height: 30px;
+    margin: 20px 20px 10px 0;
+    line-height: 30px;
+    float: left;
+}
+.RoomTypeFloor input{
+    outline: none;
+    border: none;
+    height: 30px;
+    background: #999999;
+    border-radius: 15px;
+    padding-left: 5px;
+}
+.RoomTypeName{
+    width: 235px;
+    height: 30px;
+    margin: 20px 20px 10px 0;
+    line-height: 30px;
+    float: left;
+}
+.RoomTypeName input{
+    outline: none;
+    border: none;
+    height: 30px;
+    background: #999999;
+    border-radius: 15px;
+    padding-left: 5px;
+}
+.RoomTypeBtn{
+    width: 200px;
+    height: 30px;
+    margin: 20px 20px 10px 335px;
+    line-height: 30px;
+    float: left;
+    text-align: center;
+}
+.RoomTypeBtn button:first-child{
+    width: 80px;
+    height: 30px;
+    outline: none;
+    border: none;
+    background: #007DDB;
+    border-radius: 5px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.RoomTypeBtn button:last-child{
+    width: 80px;
+    height: 30px;
+    outline: none;
+    border: none;
+    background: #C9C5C5;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.RoomList{
+    width: 100%;
+}
+.RoomFloor{
+    margin-top: 30px;
+    width: 86%;
+    margin-left: 7%;
+}
+.RoomFloor p{
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+.RoomFloorList{
+    width: 100%;
+}
+.room{
+    float: left;
+    margin: 2.3%;
+    background: #007DDB;
+    width: 12%;
+    height: 85px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+.room p{
+    width: 100%;
+    height: 100%;
+    line-height: 85px;
+    font-size: 20px;
+    color: #Ffffff;
+}
+.room p img{
+    width: 30%;
+    height: 40%;
+}
+.popup{
+    width: 165px;
+    height: 105px;
+    position: absolute;
+    background: rgba(0,0,0,0.5);
+    border-radius: 5px;
+
+}
+.popup p{
+    text-align: center;
+    font-size: 18px;
+    color: #Ffffff;
+    margin-bottom: 5px;
+}
+.roomData{
+    width: 96%;
+    height: 80%;
+    margin-left: 2%;
+}
+.roomData li{
+    float: left;
+    font-size: 12px;
+    color: #Ffffff;
+    width: 50%;
+    text-align: center;
+}
+.roomData li:last-child{
+    color: #FF5722;
+}
+.modification{
+    width: 100%;
+    text-align: center;
+}
+.modification button{
+    width: 60%;
+    margin-top: 10px;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+}
+.hint{
+    width: 16%;
+    height: 70px;
+    position: fixed;
+    top: 340px;
+    left: 41%;
+    background: #e8e8e8;
+    z-index: 15;
+    border-radius: 2px;
+}
+.hint h6{
+    width: 100%;
+    height: 30px;
+    background: #5FB878;
+    color: #Ffffff;
+    line-height: 30px;
+    border-radius: 2px 2px 0 0;
+}
+.hint textarea{
+    resize: none;
+    width: 100%;
+    height: 40px;
+    color: #333333;
+    outline: none;
+    border: none;
+    line-height: 40px;
+    border: 2px solid #5FB878;
+    font-size: 12px;
+    border-radius:0 0 2px 2px;
+}
+
+/* 设置滚动条的样式 */
+::-webkit-scrollbar {
+    width:2px;
+}
+/* 滚动槽 */
+::-webkit-scrollbar-track {
+    /*-webkit-box-shadow:inset006pxrgba(0,0,0,0.3);*/
+    border-radius:10px;
+}
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+    border-radius:10px;
+    background:rgba(0,0,0,0.1);
+    /*-webkit-box-shadow:inset006pxrgba(0,0,0,0.5);*/
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background: url("../img/砖石.png");
+}
